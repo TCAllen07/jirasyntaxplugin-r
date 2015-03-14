@@ -34,6 +34,7 @@ import syntaxhighlighter.brush.custom.BrushGherkin;
 import syntaxhighlighter.brush.custom.BrushObjC;
 import syntaxhighlighter.brush.custom.BrushPuppet;
 import syntaxhighlighter.brush.custom.BrushTcl;
+import syntaxhighlighter.brush.custom.BrushR;
 
 import com.atlassian.renderer.RenderContext;
 import com.atlassian.renderer.v2.RenderMode;
@@ -409,6 +410,17 @@ public class SyntaxHighlighterMacro extends BaseMacro {
 					"html".equals(tmpParam)  
 					) {
 				return new BrushXml();
+			}
+			else if (
+					// Maybe make these param checks case-insensitive?
+					"r".equals(tmpParam) || 
+					"R".equals(tmpParam) || 
+					"rscript".equals(tmpParam) || 
+					"Rscript".equals(tmpParam) || 
+					"s".equals(tmpParam)
+					"S".equals(tmpParam)
+					) {
+				return new BrushR();
 			}
 		}
 		
